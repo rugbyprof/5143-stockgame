@@ -10,7 +10,7 @@ import libclient
 sel = selectors.DefaultSelector()
 
 
-def create_request(action, value,data = None):
+def create_request(action, value, data = None):
     if action == "search":
         return dict(
             type="text/json",
@@ -55,8 +55,9 @@ action, value = sys.argv[3],       sys.argv[4]
 if len(sys.argv) > 5:
     data = sys.argv[5]
     request = create_request(action, value,data)
-
-request = create_request(action, value)
+else:
+    request = create_request(action, value)
+    
 start_connection(host, port, request)
 
 try:
