@@ -15,6 +15,22 @@ request_search = {
     "rhino":"\U0001F98F"
 }
 
+class DataBase(object):
+    """
+    constructor
+    """
+    def __init__(self):
+        pass
+
+    def search(self,key):
+        return {"searching": f"doing a search for {key}"}
+    
+    def insert(self,collection,data):
+        # print(f"inserting into {collection}")
+        # print(data)
+        return {"inserting": f"inserting into {collection}","data":data}
+
+
 
 
 class Message:
@@ -96,10 +112,22 @@ class Message:
 
     def _create_response_json_content(self):
         action = self.request.get("action")
+        db = DataBase()
         if action == "search":
             query = self.request.get("value")
-            time.sleep(1)
-            answer = request_search.get(query) or f'No match for "{query}".'
+            answer = db.search(query)
+            
+            #time.sleep(1)
+            # looks for our answer
+            #answer = request_search.get(query) or f'No match for "{query}".'
+            content = {"result": answer}
+        elif action == "insert":
+            query = self.request.get("value")
+            answer = db.search(query)
+            
+            #time.sleep(1)
+            # looks for our answer
+            #answer = request_search.get(query) or f'No match for "{query}".'
             content = {"result": answer}
         else:
             content = {"result": f'Error: invalid action "{action}".'}
