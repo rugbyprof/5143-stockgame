@@ -42,12 +42,15 @@ def start_connection(host, port, request):
     sel.register(sock, events, data=message)
 
 
-if len(sys.argv) != 5:
+if len(sys.argv) == 1 or len(sys.argv) > 6:
     print("usage:", sys.argv[0], "<host> <port> <action> <value>")
     sys.exit(1)
 
+me = sys.argv[0]
+            # ip address    port
 host, port = sys.argv[1], int(sys.argv[2])
-action, value = sys.argv[3], sys.argv[4]
+                # search/ insert    lookup key
+action, value = sys.argv[3],       sys.argv[4]
 
 if len(sys.argv) > 5:
     data = sys.argv[5]
