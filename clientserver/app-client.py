@@ -10,13 +10,19 @@ import libclient
 sel = selectors.DefaultSelector()
 
 
-def create_request(action, value):
+def create_request(action, value,data = None):
     if action == "search":
         return dict(
             type="text/json",
             encoding="utf-8",
             content=dict(action=action, value=value),
         )
+    elif action == "insert":
+        return dict(
+            type="text/json",
+            encoding="utf-8",
+            content=dict(action=action, collection=value, data=data),
+        )    
     else:
         return dict(
             type="binary/custom-client-binary-type",
@@ -42,6 +48,11 @@ if len(sys.argv) != 5:
 
 host, port = sys.argv[1], int(sys.argv[2])
 action, value = sys.argv[3], sys.argv[4]
+
+if len(sys.argv) > 5:
+    data = sys.argv[5]
+    request = create_request(action, value,data)
+
 request = create_request(action, value)
 start_connection(host, port, request)
 

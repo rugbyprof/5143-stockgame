@@ -122,8 +122,9 @@ class Message:
             #answer = request_search.get(query) or f'No match for "{query}".'
             content = {"result": answer}
         elif action == "insert":
-            query = self.request.get("value")
-            answer = db.search(query)
+            collection = self.request.get("collection")
+            data = self.request.get("data")
+            answer = db.insert(collection,data)
             
             #time.sleep(1)
             # looks for our answer
