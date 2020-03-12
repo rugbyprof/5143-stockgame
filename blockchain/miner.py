@@ -1,7 +1,8 @@
-#!/usr/local/bin/python3
+#!/usr//bin/python3
 import os,sys
 
 sys.path.append('/usr/local/lib/python3.7/')
+sys.path.append('/usr/local/Cellar/numpy')
 import hashlib
 import random
 import string
