@@ -4,11 +4,15 @@ def logg(message):
     f.write(message+"\n")
     f.close()
 
+
 class DataBase(object):
     """
     constructor
     """
-    def __init__(self):
+    def __init__(self,request):
+        self.request = request
+        self.action = self.request["action"]
+
         self.fakeDB = {
             "morpheus": "Follow the white rabbit. \U0001f430",
             "ring": "In the caves beneath the Misty Mountains. \U0001f48d",
@@ -19,7 +23,20 @@ class DataBase(object):
             "rhino":"\U0001F98F"
         }
 
-    def search(self,key):
+    def processRequest(self):
+        if self.action == "search":
+            query = self.request.get("key")
+            answer = self.search(query)
+            content = {"result": answer}
+        elif action == "insert":
+            collection = self.request.get("collection")
+            data = self.request.get("data")
+            answer = self.insert(collection,data)
+            content = {"result": answer}
+        else:
+            content = {"result": f'Error: invalid action "{action}".'}
+
+    def search(self,key=None):
         if not key:
             logg("key = none")
             return {"error":"key is none"}
@@ -31,7 +48,10 @@ class DataBase(object):
 
         
     
-    def insert(self,collection,data):
-        # print(f"inserting into {collection}")
-        # print(data)
-        return {"inserting": f"inserting into {collection}","data":data}
+    def insert(self,collection=None,data=None):
+        if not collection:
+            response = {"Error": "collection = None"}
+        elif not data:
+            response = {"Error": "data = None"}
+
+        response = {"success": {"message": {"insert":f"inserting into {collection}","data":data}}}

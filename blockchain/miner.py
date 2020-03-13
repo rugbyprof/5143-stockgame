@@ -1,4 +1,4 @@
-#!/usr//bin/python3
+#!/usr/local/bin/python3
 import os,sys
 
 sys.path.append('/usr/local/lib/python3.7/')
@@ -45,12 +45,12 @@ def verify_sign(public_key_loc, signature, data):
     return: Boolean. True if the signature is valid; False otherwise. 
     '''
     from Crypto.PublicKey import RSA 
-    from Crypto.Signature import PKCS1_v1_5 
+    from Crypto.Signature import PKCS1_OAEP 
     from Crypto.Hash import SHA256 
     from base64 import b64decode 
     pub_key = open(public_key_loc, "r").read() 
     rsakey = RSA.importKey(pub_key) 
-    signer = PKCS1_v1_5.new(rsakey) 
+    signer = PKCS1_OAEP.new(rsakey) 
     digest = SHA256.new() 
     # Assumes the data is base64 encoded to begin with
     digest.update(b64decode(data)) 
@@ -99,8 +99,8 @@ def mine(message, difficulty=1):
     #for i in range(1000):
     while True:
         i = i + 1
-        # if i % 1000 == 0:
-        #     print(f"{str(i)} iterations ...")
+        if i % 100000 == 0:
+            print(f"{str(i)} iterations ...")
         digest = sha256(str(hash(message)) + str(i))
         if digest.startswith(prefix):
             print (f"Found {prefix} in {digest} after {i} iterations ...")
@@ -108,27 +108,27 @@ def mine(message, difficulty=1):
 
 if __name__=='__main__':
 
-    # for i in range(5,100):
-    #     mine("hello world",i)
+    for i in range(4,100):
+        mine("hello world",i)
 
-    a_message = "The quick brown fox jumped over the lazy dog".encode('utf-8')
-    privatekey , publickey = generate_keys()
-    encrypted_msg = encrypt_message(a_message , publickey)
-    decrypted_msg = decrypt_message(encrypted_msg, privatekey)
+    # a_message = "The quick brown fox jumped over the lazy dog".encode('utf-8')
+    # privatekey , publickey = generate_keys()
+    # encrypted_msg = encrypt_message(a_message , publickey)
+    # decrypted_msg = decrypt_message(encrypted_msg, privatekey)
 
-    pubkeyf = open("public_rsa.pem","w") 
-    pubkeyf.write(str(publickey))
-    pubkeyf.close()
+    # pubkeyf = open("public_rsa.pem","w") 
+    # pubkeyf.write(str(publickey))
+    # pubkeyf.close()
 
-    privkeyf = open("private_rsa.pem","w") 
-    privkeyf.write(str(privatekey))
-    privkeyf.close()
+    # privkeyf = open("private_rsa.pem","w") 
+    # privkeyf.write(str(privatekey))
+    # privkeyf.close()
 
 
-    print ("%s - (%d)" % (privatekey.exportKey() , len(privatekey.exportKey())))
-    print ("%s - (%d)" % (publickey.exportKey() , len(publickey.exportKey())))
-    print (" Original content: %s - (%d)" % (a_message, len(a_message)))
-    print ("Encrypted message: %s - (%d)" % (encrypted_msg, len(encrypted_msg)))
-    print ("Decrypted message: %s - (%d)" % (decrypted_msg, len(decrypted_msg)))
+    # print ("%s - (%d)" % (privatekey.exportKey() , len(privatekey.exportKey())))
+    # print ("%s - (%d)" % (publickey.exportKey() , len(publickey.exportKey())))
+    # print (" Original content: %s - (%d)" % (a_message, len(a_message)))
+    # print ("Encrypted message: %s - (%d)" % (encrypted_msg, len(encrypted_msg)))
+    # print ("Decrypted message: %s - (%d)" % (decrypted_msg, len(decrypted_msg)))
 
-    print(verify_sign("public_rsa.pem", "private_rsa.pem", encrypted_msg))
+    # print(verify_sign("public_rsa.pem", "private_rsa.pem", encrypted_msg))

@@ -1,4 +1,32 @@
 import sys
+import socket 
+import ifcfg
+import json
+import pprint
+
+
+# Function to display hostname and 
+# IP address 
+def get_Host_name_IP(): 
+    try: 
+        host_name = socket.gethostname() 
+        host_ip = socket.gethostbyname(host_name) 
+        print("Hostname :  ",host_name) 
+        print("IP : ",host_ip) 
+    except: 
+        print("Unable to get Hostname and IP") 
+
+def get_IP():
+    ip = None
+    result = ifcfg.interfaces()
+    
+    for k,v in result.items():
+        if v['inet'] != None and v['inet'] != '127.0.0.1':
+            return v['inet']
+    return ip
+
+
+        
 
 def myArgParse(argv):
     """ Parses key value command line arguments into a usable 
@@ -25,3 +53,8 @@ def myArgParse(argv):
         else:
             args.append(arg)
     return (kwargs,args)
+
+if __name__=='__main__':
+    # Driver code 
+   
+    print(get_IP())

@@ -286,10 +286,10 @@ class ServerMessage:
 
     def _create_response_json_content(self):
         action = self.request.get("action")
-        db = DataBase()
+        db = DataBase(self.request)
 
         if action == "search":
-            query = self.request.get("value")
+            query = self.request.get("key")
             answer = db.search(query)
             
             #time.sleep(1)

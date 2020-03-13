@@ -16,9 +16,9 @@ class Request:
         self.request['content'] = {}
 
     def searchRequest(self, key):
+        print(key)
         self.request["content"]["action"] = "search"
         self.request["content"]["key"] = key
-
         return self.request
 
     def insertRequest(self, collection, data):
@@ -36,7 +36,7 @@ class Request:
         return self.request
 
     def createRequest(self, **kwargs):
-
+        
         # Pull all the possible vars out of kwargs
         action = kwargs.get("action", None)
         key = kwargs.get("key", None)
