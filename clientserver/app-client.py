@@ -4,6 +4,20 @@ import sys
 from libclient import Client
 
 def myargparse(argv):
+    """ Parses key value command line arguments into a usable 
+        dictionary and list.
+        Example:
+            ./app-client.py host=10.0.61.34 port=6000 action=search value=rhino whoknows1 whoknows2
+        will create:
+            kwargs{
+                "host":"10.0.61.34",
+                "port":"6000",
+                "action":"search",
+                "value":"rhino"
+            }
+            args['whoknows1', 'whoknows2']
+        and will return them.
+    """ 
     kwargs = {}
     args = []
 
