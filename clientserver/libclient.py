@@ -70,9 +70,7 @@ class Message:
         tiow.close()
         return obj
 
-    def _create_message(
-        self, *, content_bytes, content_type, content_encoding
-    ):
+    def _create_message(self, *, content_bytes, content_type, content_encoding):
         jsonheader = {
             "byteorder": sys.byteorder,
             "content-type": content_type,
@@ -215,7 +213,6 @@ class Client:
     def __init__(self,host,port):
         self.host = host
         self.port = port
-        print(self)
 
     def create_request(self, action, value, data = None):
         request = {}
