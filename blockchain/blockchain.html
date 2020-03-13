@@ -1,0 +1,228 @@
+<div class="ac ae af ag ah fj aj ak">
+    <div>
+        <div id="62d2" class="fk fl co ar fm b fn fo fp fq fr fs ft fu fv fw fx">
+            <h1 class="fm b fn fy fp fz fr ga ft gb fv gc co">Building A Simple Blockchain Data Structure With Python
+            </h1>
+        </div>
+        <div class="gd">
+            <div class="n ge gf gg gh">
+                <div class="o n">
+                    <div><a rel="noopener"
+                            href="/@arjunaskykok?source=post_page-----e7ebd448647a----------------------"><img
+                                alt="arjuna sky kok" class="r dh gi gj"
+                                src="https://miro.medium.com/fit/c/96/96/1*A5qI19GDcIx4tkL-ex25fw.jpeg" width="48"
+                                height="48"></a></div>
+                    <div class="gk ak r">
+                        <div class="n">
+                            <div style="flex:1"><span class="aq b ar as at au r co q">
+                                    <div class="gl n o gm"><span class="aq eg bj as bd gn bc go gp gq co"><a
+                                                class="bo bp bq br bs bt bu bv bw bx gr ca cb cc cd" rel="noopener"
+                                                href="/@arjunaskykok?source=post_page-----e7ebd448647a----------------------">arjuna
+                                                sky kok</a></span>
+                                        <div class="gs r ap h"><button
+                                                class="gt cp gu gv gw gx gy gz bx da aq b ar ha eh au db dc dd bf de ca">Follow</button>
+                                        </div>
+                                    </div>
+                                </span></div>
+                        </div><span class="aq b ar as at au r av aw"><span class="aq eg bj as bd gn bc go gp gq av">
+                                <div><a class="bo bp bq br bs bt bu bv bw bx gr ca cb cc cd" rel="noopener"
+                                        href="/coinmonks/building-a-simple-blockchain-data-structure-with-python-e7ebd448647a?source=post_page-----e7ebd448647a----------------------">Apr
+                                        17, 2018</a> <!-- -->·
+                                    <!-- -->
+                                    <!-- -->5
+                                    <!-- --> min read</div>
+                            </span></span>
+                    </div>
+                </div>
+                <div class="n hb hc hd he hf hg hh hi ab">
+                    <div class="n o">
+                        <div class="hj r ap"><a
+                                href="//medium.com/p/e7ebd448647a/share/twitter?source=post_actions_header---------------------------"
+                                class="bo bp bq br bs bt bu bv bw bx by bz ca cb cc cd" target="_blank"
+                                rel="noopener nofollow"><svg width="29" height="29" class="q">
+                                    <path
+                                        d="M22.05 7.54a4.47 4.47 0 0 0-3.3-1.46 4.53 4.53 0 0 0-4.53 4.53c0 .35.04.7.08 1.05A12.9 12.9 0 0 1 5 6.89a5.1 5.1 0 0 0-.65 2.26c.03 1.6.83 2.99 2.02 3.79a4.3 4.3 0 0 1-2.02-.57v.08a4.55 4.55 0 0 0 3.63 4.44c-.4.08-.8.13-1.21.16l-.81-.08a4.54 4.54 0 0 0 4.2 3.15 9.56 9.56 0 0 1-5.66 1.94l-1.05-.08c2 1.27 4.38 2.02 6.94 2.02 8.3 0 12.86-6.9 12.84-12.85.02-.24 0-.43 0-.65a8.68 8.68 0 0 0 2.26-2.34c-.82.38-1.7.62-2.6.72a4.37 4.37 0 0 0 1.95-2.51c-.84.53-1.81.9-2.83 1.13z">
+                                    </path>
+                                </svg></a></div>
+                        <div class="hj r ap"><button class="bo bp bq br bs bt bu bv bw bx by bz ca cb cc cd"><svg
+                                    width="29" height="29" viewBox="0 0 29 29" fill="none" class="q">
+                                    <path
+                                        d="M5 6.36C5 5.61 5.63 5 6.4 5h16.2c.77 0 1.4.61 1.4 1.36v16.28c0 .75-.63 1.36-1.4 1.36H6.4c-.77 0-1.4-.6-1.4-1.36V6.36z">
+                                    </path>
+                                    <path fill-rule="evenodd" clip-rule="evenodd"
+                                        d="M10.76 20.9v-8.57H7.89v8.58h2.87zm-1.44-9.75c1 0 1.63-.65 1.63-1.48-.02-.84-.62-1.48-1.6-1.48-.99 0-1.63.64-1.63 1.48 0 .83.62 1.48 1.59 1.48h.01zM12.35 20.9h2.87v-4.79c0-.25.02-.5.1-.7.2-.5.67-1.04 1.46-1.04 1.04 0 1.46.8 1.46 1.95v4.59h2.87v-4.92c0-2.64-1.42-3.87-3.3-3.87-1.55 0-2.23.86-2.61 1.45h.02v-1.24h-2.87c.04.8 0 8.58 0 8.58z"
+                                        fill="#fff"></path>
+                                </svg></button></div>
+                        <div class="hj r ap"><a
+                                href="//medium.com/p/e7ebd448647a/share/facebook?source=post_actions_header---------------------------"
+                                class="bo bp bq br bs bt bu bv bw bx by bz ca cb cc cd" target="_blank"
+                                rel="noopener nofollow"><svg width="29" height="29" class="q">
+                                    <path
+                                        d="M23.2 5H5.8a.8.8 0 0 0-.8.8V23.2c0 .44.35.8.8.8h9.3v-7.13h-2.38V13.9h2.38v-2.38c0-2.45 1.55-3.66 3.74-3.66 1.05 0 1.95.08 2.2.11v2.57h-1.5c-1.2 0-1.48.57-1.48 1.4v1.96h2.97l-.6 2.97h-2.37l.05 7.12h5.1a.8.8 0 0 0 .79-.8V5.8a.8.8 0 0 0-.8-.79">
+                                    </path>
+                                </svg></a></div>
+                        <div class="hk r ao">
+                            <div>
+                                <div class="hl">
+                                    <div>
+                                        <div class="bf" role="tooltip" aria-hidden="true" aria-describedby="1"
+                                            aria-labelledby="1"><button
+                                                class="bo bp bq br bs bt bu bv bw bx by bz ca cb cc cd"><svg width="25"
+                                                    height="25" viewBox="0 0 25 25">
+                                                    <path
+                                                        d="M19 6a2 2 0 0 0-2-2H8a2 2 0 0 0-2 2v14.66h.01c.01.1.05.2.12.28a.5.5 0 0 0 .7.03l5.67-4.12 5.66 4.13a.5.5 0 0 0 .71-.03.5.5 0 0 0 .12-.29H19V6zm-6.84 9.97L7 19.64V6a1 1 0 0 1 1-1h9a1 1 0 0 1 1 1v13.64l-5.16-3.67a.49.49 0 0 0-.68 0z"
+                                                        fill-rule="evenodd"></path>
+                                                </svg></button></div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <figure class="hn ho hp hq hr hs ev ew paragraph-image">
+        <div class="ht hu bl hv ak">
+            <div class="ev ew hm">
+                <div class="ia r bl ib">
+                    <div class="ic r">
+                        <div class="bk hw ez t u hx ak bd hy hz"><img class="ez t u hx ak id ie cm oz"
+                                src="https://miro.medium.com/max/60/1*-4Rd4Ns-7eApL_aTGxFkdw.jpeg?q=20" width="4608"
+                                height="2776" role="presentation"></div><img class="mz os ez t u hx ak ig" width="4608"
+                            height="2776" role="presentation"
+                            src="https://miro.medium.com/max/9216/1*-4Rd4Ns-7eApL_aTGxFkdw.jpeg"><noscript><img
+                                class="ez t u hx ak"
+                                src="https://miro.medium.com/max/9216/1*-4Rd4Ns-7eApL_aTGxFkdw.jpeg" width="4608"
+                                height="2776" role="presentation" /></noscript>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <figcaption class="av bj ih ii ij ex ev ew ik il aq eg" data-selectable-paragraph="">Photo by Mateusz Dach from
+            Pexels</figcaption>
+    </figure>
+    <p id="b946" class="im in co ar io b ip iq ir is it iu iv iw ix iy iz fe" data-selectable-paragraph="">Here, I am
+        going to build a simple blockchain data structure which is the foundation of Bitcoin. This data structure only
+        is not enough to build even a simple cryptocurrency. But we have to start somewhere.</p>
+    <p id="d468" class="im in co ar io b ip iq ir is it iu iv iw ix iy iz fe" data-selectable-paragraph="">Before
+        building a blockchain data structure, I have to explain about hashing. Bitcoin uses SHA-256. Here how you can do
+        it in Python:</p>
+    <pre
+        class="hn ho hp hq hr ja jb dv"><span id="f414" class="jc jd co ar je b bj jf jg r jh" data-selectable-paragraph="">&gt;&gt;&gt; import hashlib<br>&gt;&gt;&gt; hashlib.sha256(b”hello world”).hexdigest()<br>‘b94d27b9934d3e08a52e52d7da7dabfac484efe37a5380ee9088f7ace2efcde9’</span></pre>
+    <p id="d6e3" class="im in co ar io b ip iq ir is it iu iv iw ix iy iz fe" data-selectable-paragraph="">That is how
+        you do hashing (SHA-256) in Python. But what is actually hash? What does 256 in SHA-256 means actually?</p>
+    <p id="3cd1" class="im in co ar io b ip iq ir is it iu iv iw ix iy iz fe" data-selectable-paragraph=""><mark
+            class="ou ov kt">Hashing is a process which you turn anything (as long as you can represent it as a string)
+            into a fixed 256 bit string.</mark> In the previous example, the string “hello world” has a length 11.
+        Actually the length of “hello world” is depended on how you count it. But for simplicity, we just count how many
+        characters. That “hello world” string is turned into a fixed-size string, which is
+        ‘b94d27b9934d3e08a52e52d7da7dabfac484efe37a5380ee9088f7ace2efcde9’. Say I hash another string with different
+        length.</p>
+    <pre
+        class="hn ho hp hq hr ja jb dv"><span id="7db5" class="jc jd co ar je b bj jf jg r jh" data-selectable-paragraph="">&gt;&gt;&gt; import hashlib<br>&gt;&gt;&gt; hashlib.sha256(b”I am the best president. Ever.”).hexdigest()<br>‘fba0e4cc233f9df81278130ed748a31a842bce8f911766b661f8a4f7ddff5341’</span></pre>
+    <p id="a454" class="im in co ar io b ip iq ir is it iu iv iw ix iy iz fe" data-selectable-paragraph="">The string “I
+        am the best president. Ever.” has a different length than “hello world”. But the output has the same length,
+        which is about 64 characters. So any input will be turned into 64 random characters string. Even a string which
+        has a 23 kilometers length will be turned into a 64 random characters string.</p>
+    <p id="42a4" class="im in co ar io b ip iq ir is it iu iv iw ix iy iz fe" data-selectable-paragraph="">This is a
+        hexadecimal string. That’s why it has 64 characters. If you turn it into a bit string, it will have a 256
+        characters length.</p>
+    <pre
+        class="hn ho hp hq hr ja jb dv"><span id="7640" class="jc jd co ar je b bj jf jg r jh" data-selectable-paragraph="">&gt;&gt;&gt; bin(0xb94d27b9934d3e08a52e52d7da7dabfac484efe37a5380ee9088f7ace2efcde9)<br>‘0b1011100101001101001001111011100110010011010011010011111000001000101001010010111001010010110101111101101001111101101010111111101011000100100001001110111111100011011110100101001110000000111011101001000010001000111101111010110011100010111011111100110111101001’</span></pre>
+    <p id="3be4" class="im in co ar io b ip iq ir is it iu iv iw ix iy iz fe" data-selectable-paragraph="">That is why
+        it is called SHA-256.</p>
+    <p id="968d" class="im in co ar io b ip iq ir is it iu iv iw ix iy iz fe" data-selectable-paragraph="">Now, there
+        are some properties from hashing which is very important for Bitcoin. The first is called collision free. I mean
+        if you are going to turn anything into a fixed 256 bit string, surely there will be more than 1 input that has
+        the same output. The size of possible inputs is bigger than the size of possible output. Yes, that’s correct.
+        But finding x and y where x is different than y and hash(x) is equal hash(y) is extremely hard (in SHA-256 case;
+        some smart people have found collision in SHA-1).</p>
+    <p id="7c78" class="im in co ar io b ip iq ir is it iu iv iw ix iy iz fe" data-selectable-paragraph="">So there is
+        no apparent relation between the input and the output. Even you change the tiny bit of the input, the output
+        will be totally different. This is the second property.</p>
+    <pre
+        class="hn ho hp hq hr ja jb dv"><span id="6cff" class="jc jd co ar je b bj jf jg r jh" data-selectable-paragraph="">&gt;&gt;&gt; hashlib.sha256(b”1").hexdigest()<br>‘6b86b273ff34fce19d6b804eff5a3f5747ada4eaa22f1d49c01e52ddb7875b4b’<br>&gt;&gt;&gt; hashlib.sha256(b”2").hexdigest()<br>‘d4735e3a265e16eee03f59718b9b5d03019c07d8b6c51f90da3a666eec13ab35’<br>&gt;&gt;&gt; hashlib.sha256(b”3").hexdigest()<br>‘4e07408562bedb8b60ce05c1decfe3ad16b72230967de01f640b7e4729b49fce’<br>&gt;&gt;&gt; hashlib.sha256(b”11").hexdigest()<br>‘4fc82b26aecb47d2868c4efbe3581732a3e7cbcc6c2efb32062c08170a05eeb8’</span></pre>
+    <p id="2bb8" class="im in co ar io b ip iq ir is it iu iv iw ix iy iz fe" data-selectable-paragraph="">So the only
+        way to to find different inputs which have the same output, you need to test all combination of characters with
+        different length. “abc”, “maybe a loooooong string”, “17”, etc. It’s totally impractical.</p>
+    <p id="e703" class="im in co ar io b ip iq ir is it iu iv iw ix iy iz fe" data-selectable-paragraph="">But is there
+        any possibility that when you hash something, the output is already same as hashing of “hello world”? Or just
+        any two different strings but have the same hash? Of course, there is. The question is how minuscule the
+        probability is. There are around 2²⁵⁶ possibilities of the output of SHA-256. How big is 2²⁵⁶?
+        115792089237316195423570985008687907853269984665640564039457584007913129639936. Or 1.15 e+77. Or roughly 10⁷⁷.
+        If you think that number is big but not very big, I have a bad news for you. The total atom in observable
+        universe (that is the universe that you can see up to 46 billions light years in any direction from your chair)
+        is 10⁷⁸ to 10⁸². <a href="https://www.universetoday.com/36302/atoms-in-the-universe/" class="bo de ji jj jk jl"
+            target="_blank" rel="noopener nofollow">https://www.universetoday.com/36302/atoms-in-the-universe/</a></p>
+    <p id="c2c2" class="im in co ar io b ip iq ir is it iu iv iw ix iy iz fe" data-selectable-paragraph="">My computer
+        has Nvidia Geforce 1080 Ti. It has 11.3 teraflops (tera = 10¹²). Flop is floating operation. Hashing is integer
+        operation. So it’s apple to orange. But for simplicity, say hashing is an floating operation as well and
+        requires 3000 operations per hash. So my graphic card can compute 3766666666 hash per second. To find a
+        collision, described in <a href="https://en.wikipedia.org/wiki/Birthday_attack" class="bo de ji jj jk jl"
+            target="_blank" rel="noopener nofollow">birthday attack</a>, we need only to compute 2¹²⁸ hashes. Say every
+        human on this planet has my graphic card and together we compute the collision attack. It takes:</p>
+    <pre
+        class="hn ho hp hq hr ja jb dv"><span id="57b3" class="jc jd co ar je b bj jf jg r jh" data-selectable-paragraph="">&gt;&gt;&gt; 2**128 / (7000000000 * 3766666666.6666665)<br>1.2905778770705631e+19</span></pre>
+    <p id="7c79" class="im in co ar io b ip iq ir is it iu iv iw ix iy iz fe" data-selectable-paragraph="">That number
+        is longer than the age of universe (around 10¹⁷ seconds). <a
+            href="https://www.space.com/24054-how-old-is-the-universe.html" class="bo de ji jj jk jl" target="_blank"
+            rel="noopener nofollow">https://www.space.com/24054-how-old-is-the-universe.html</a></p>
+    <p id="16ad" class="im in co ar io b ip iq ir is it iu iv iw ix iy iz fe" data-selectable-paragraph="">To describe
+        the hashing algorithm, it is quite a work. But someday I’ll explain the code behind SHA-256. Now that you can
+        comprehend the vastness of hashing, let’s move on. Blockchain is like a linked list, a data structure known by
+        many computer science students. Let’s create a block. The first block in Bitcoin is called genesis block.</p>
+    <pre
+        class="hn ho hp hq hr ja jb dv"><span id="4471" class="jc jd co ar je b bj jf jg r jh" data-selectable-paragraph="">import hashlib, json</span><span id="e299" class="jc jd co ar je b bj jm jn jo jp jq jg r jh" data-selectable-paragraph="">block_genesis = {<br> ‘prev_hash’: None,<br> ‘transactions’: [1, 3, 4, 2]<br>}</span></pre>
+    <p id="b331" class="im in co ar io b ip iq ir is it iu iv iw ix iy iz fe" data-selectable-paragraph="">The
+        transactions represents the… <em class="jr">well</em>, transactions. In Bitcoin, it will be like “Jason pays 2
+        btc to Mary Sue”, “Kylo Rein pays 10 btc to Yoda”. For simplicity, we just put normal integers.</p>
+    <p id="5afa" class="im in co ar io b ip iq ir is it iu iv iw ix iy iz fe" data-selectable-paragraph="">We serialized
+        the block so it can be hashed.</p>
+    <pre
+        class="hn ho hp hq hr ja jb dv"><span id="c723" class="jc jd co ar je b bj jf jg r jh" data-selectable-paragraph="">block_genesis_serialized = json.dumps(block_genesis, sort_keys=True).encode(‘utf-8’)<br>block_genesis_hash = hashlib.sha256(block_genesis_serialized).hexdigest()</span></pre>
+    <p id="20b8" class="im in co ar io b ip iq ir is it iu iv iw ix iy iz fe" data-selectable-paragraph="">Now we have
+        another block.</p>
+    <pre
+        class="hn ho hp hq hr ja jb dv"><span id="83f1" class="jc jd co ar je b bj jf jg r jh" data-selectable-paragraph="">block_2 = {<br> ‘prev_hash’: block_genesis_hash,<br> ‘transactions’: [3, 3, 3, 8, 7, 12]<br>}</span></pre>
+    <p id="181c" class="im in co ar io b ip iq ir is it iu iv iw ix iy iz fe" data-selectable-paragraph="">We hash the
+        block 2.</p>
+    <pre
+        class="hn ho hp hq hr ja jb dv"><span id="91c2" class="jc jd co ar je b bj jf jg r jh" data-selectable-paragraph="">block_2_serialized = json.dumps(block_2, sort_keys=True).encode(‘utf-8’)<br>block_2_hash = hashlib.sha256(block_2_serialized).hexdigest()</span></pre>
+    <p id="1756" class="im in co ar io b ip iq ir is it iu iv iw ix iy iz fe" data-selectable-paragraph="">We build
+        another block.</p>
+    <pre
+        class="hn ho hp hq hr ja jb dv"><span id="1d9c" class="jc jd co ar je b bj jf jg r jh" data-selectable-paragraph="">block_3 = {<br> ‘prev_hash’: block_2_hash,<br> ‘transactions’: [3, 4, 4, 8, 34]<br>}</span></pre>
+    <p id="411c" class="im in co ar io b ip iq ir is it iu iv iw ix iy iz fe" data-selectable-paragraph="">We hash the
+        block 3. This will be the last block, I promise.</p>
+    <pre
+        class="hn ho hp hq hr ja jb dv"><span id="e65f" class="jc jd co ar je b bj jf jg r jh" data-selectable-paragraph="">block_3_serialized = json.dumps(block_3, sort_keys=True).encode(‘utf-8’)<br>block_3_hash = hashlib.sha256(block_3_serialized).hexdigest()</span></pre>
+    <p id="7923" class="im in co ar io b ip iq ir is it iu iv iw ix iy iz fe" data-selectable-paragraph="">To make sure
+        that data has not been tampered, I only need to check the last block’s hash, instead of checking all the data
+        from genesis block to the last block. If it is different, than someone tried to tamper the data.</p>
+    <pre
+        class="hn ho hp hq hr ja jb dv"><span id="605a" class="jc jd co ar je b bj jf jg r jh" data-selectable-paragraph="">import hashlib, json</span><span id="4a49" class="jc jd co ar je b bj jm jn jo jp jq jg r jh" data-selectable-paragraph="">block_genesis = {<br> ‘prev_hash’: None,<br> ‘transactions’: [1, 3, 4, 2]<br>}</span><span id="a28a" class="jc jd co ar je b bj jm jn jo jp jq jg r jh" data-selectable-paragraph="">block_2 = {<br> ‘prev_hash’: None,<br> ‘transactions’: [3, 3, 3, 8, 7, 12]<br>}</span><span id="f4b5" class="jc jd co ar je b bj jm jn jo jp jq jg r jh" data-selectable-paragraph="">block_3 = {<br> ‘prev_hash’: None,<br> ‘transactions’: [3, 4, 4, 8, 34]<br>}</span><span id="154b" class="jc jd co ar je b bj jm jn jo jp jq jg r jh" data-selectable-paragraph="">def hash_blocks(blocks):<br> prev_hash = None<br> for block in blocks:<br>  block[‘prev_hash’] = prev_hash<br>  block_serialized = json.dumps(block, sort_keys=True).encode(‘utf-8’)<br>  block_hash = hashlib.sha256(block_serialized).hexdigest()<br>  prev_hash = block_hash</span><span id="19ba" class="jc jd co ar je b bj jm jn jo jp jq jg r jh" data-selectable-paragraph=""> return prev_hash</span><span id="0798" class="jc jd co ar je b bj jm jn jo jp jq jg r jh" data-selectable-paragraph="">print(“Original hash”)<br>print(hash_blocks([block_genesis, block_2, block_3]))</span><span id="f595" class="jc jd co ar je b bj jm jn jo jp jq jg r jh" data-selectable-paragraph="">print(“Tampering the data”)<br>block_genesis[‘transactions’][0] = 3</span><span id="893a" class="jc jd co ar je b bj jm jn jo jp jq jg r jh" data-selectable-paragraph="">print(“After being tampered”)<br>print(hash_blocks([block_genesis, block_2, block_3]))</span></pre>
+    <p id="e071" class="im in co ar io b ip iq ir is it iu iv iw ix iy iz fe" data-selectable-paragraph="">The result:
+    </p>
+    <pre
+        class="hn ho hp hq hr ja jb dv"><span id="c81c" class="jc jd co ar je b bj jf jg r jh" data-selectable-paragraph="">Original hash<br>45eda4f7a76bf0f92a0acda2ce4752dfbe167473376f766f22d7ec68501cac40<br>Tampering the data<br>After being tampered<br>27d68dae05428be6aa244869196a481f431fca6645dd33c3df7a740afa03b7d9</span></pre>
+    <p id="6a31" class="im in co ar io b ip iq ir is it iu iv iw ix iy iz fe" data-selectable-paragraph="">This is the
+        basic of the blockchain. But this is not enough. How do you decide the next block to be added? You need
+        consensus and proof of work. Then the block structure in Blockchain is much more complicated. We’ll cover that
+        in next articles.</p>
+    <figure class="hn ho hp hq hr hs ev ew paragraph-image"><a href="https://coincodecap.com">
+            <div class="ev ew js">
+                <div class="ia r bl ib">
+                    <div class="jt r">
+                        <div class="bk hw ez t u hx ak bd hy hz"><img class="ez t u hx ak id ie cm oz"
+                                src="https://miro.medium.com/max/60/1*HrFLDXz92JavTZXjhmvU7g.png?q=20" width="407"
+                                height="360" role="presentation"></div><img class="mz os ez t u hx ak ig" width="407"
+                            height="360" role="presentation"
+                            src="https://miro.medium.com/max/814/1*HrFLDXz92JavTZXjhmvU7g.png"><noscript><img
+                                class="ez t u hx ak" src="https://miro.medium.com/max/814/1*HrFLDXz92JavTZXjhmvU7g.png"
+                                width="407" height="360" role="presentation" /></noscript>
+                    </div>
+                </div>
+            </div>
+        </a></figure>
+</div>
