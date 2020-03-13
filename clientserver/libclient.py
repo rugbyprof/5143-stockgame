@@ -3,6 +3,10 @@ import selectors
 import json
 import io
 import struct
+import socket
+import traceback
+
+sel = selectors.DefaultSelector()
 
 
 class Message:
@@ -206,3 +210,66 @@ class Message:
             self._process_response_binary_content()
         # Close when response has been processed
         self.close()
+
+class Client:
+    def __init__(self,host,port):
+        self.host = host
+        self.port = port
+        print(self)
+
+    def create_request(self, action, value, data = None):
+        request = {}
+        if action == "search":
+            request =  dict(
+                type="text/json",
+                encoding="utf-8",
+                content=dict(action=action, value=value),
+            )
+        elif action == "insert":
+            request =  dict(
+                type="text/json",
+                encoding="utf-8",
+                content=dict(action=action, collection=value, data=data),
+            )    
+        else:
+            request =  dict(
+                type="binary/custom-client-binary-type",
+                encoding="binary",
+                content=bytes(action + value, encoding="utf-8"),
+            )
+
+        self.start_connection(request)
+
+
+    def start_connection(self, request):
+        addr = (self.host, self.port)
+        print("starting connection to", addr)
+        sock = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
+        sock.setblocking(False)
+        sock.connect_ex(addr)
+        events = selectors.EVENT_READ | selectors.EVENT_WRITE
+        message = Message(sel, sock, addr, request)
+        sel.register(sock, events, data=message)
+
+        try:
+            while True:
+                events = sel.select(timeout=1)
+                for key, mask in events:
+                    message = key.data
+                    try:
+                        message.process_events(mask)
+                    except Exception:
+                        print(
+                            "main: error: exception for",
+                            f"{message.addr}:\n{traceback.format_exc()}",
+                        )
+                        message.close()
+                # Check for a socket being monitored to continue.
+                if not sel.get_map():
+                    break
+        except KeyboardInterrupt:
+            print("caught keyboard interrupt, exiting")
+        finally:
+            sel.close()
+
+        return message

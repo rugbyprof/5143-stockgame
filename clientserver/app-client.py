@@ -1,82 +1,29 @@
-#!/usr/bin/env python3
+#!/usr/bin/python3
 
 import sys
-import socket
-import selectors
-import traceback
+from libclient import Client
 
-import libclient
+def myargparse(argv):
+    kwargs = {}
+    args = []
 
-sel = selectors.DefaultSelector()
+    for arg in argv[1:]:
+        if '=' in arg:
+            k,v = arg.split("=")
+            kwargs[k]=v
+        else:
+            args.append(arg)
+    return (kwargs,args)
 
+if __name__=='__main__':
+    kwargs,args = myargparse(sys.argv)
+    #print(kwargs,args)
 
-def create_request(action, value, data = None):
-    if action == "search":
-        return dict(
-            type="text/json",
-            encoding="utf-8",
-            content=dict(action=action, value=value),
-        )
-    elif action == "insert":
-        return dict(
-            type="text/json",
-            encoding="utf-8",
-            content=dict(action=action, collection=value, data=data),
-        )    
-    else:
-        return dict(
-            type="binary/custom-client-binary-type",
-            encoding="binary",
-            content=bytes(action + value, encoding="utf-8"),
-        )
+    host = kwargs.get("host",None)
+    port = kwargs.get("port",None)
+    action = kwargs.get("action",None)
+    value = kwargs.get("value",None)
 
-
-def start_connection(host, port, request):
-    addr = (host, port)
-    print("starting connection to", addr)
-    sock = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
-    sock.setblocking(False)
-    sock.connect_ex(addr)
-    events = selectors.EVENT_READ | selectors.EVENT_WRITE
-    message = libclient.Message(sel, sock, addr, request)
-    sel.register(sock, events, data=message)
-
-
-if len(sys.argv) == 1 or len(sys.argv) > 6:
-    print("usage:", sys.argv[0], "<host> <port> <action> <value>")
-    sys.exit(1)
-
-me = sys.argv[0]
-            # ip address    port
-host, port = sys.argv[1], int(sys.argv[2])
-                # search/ insert    lookup key
-action, value = sys.argv[3],       sys.argv[4]
-
-if len(sys.argv) > 5:
-    data = sys.argv[5]
-    request = create_request(action, value,data)
-else:
-    request = create_request(action, value)
-    
-start_connection(host, port, request)
-
-try:
-    while True:
-        events = sel.select(timeout=1)
-        for key, mask in events:
-            message = key.data
-            try:
-                message.process_events(mask)
-            except Exception:
-                print(
-                    "main: error: exception for",
-                    f"{message.addr}:\n{traceback.format_exc()}",
-                )
-                message.close()
-        # Check for a socket being monitored to continue.
-        if not sel.get_map():
-            break
-except KeyboardInterrupt:
-    print("caught keyboard interrupt, exiting")
-finally:
-    sel.close()
+    if host and port and action and value:
+        client = Client(host,port)
+        request = client.create_request(action, value)
