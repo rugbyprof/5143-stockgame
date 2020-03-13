@@ -20,7 +20,7 @@ if __name__=='__main__':
     #print(kwargs,args)
 
     host = kwargs.get("host",None)
-    port = kwargs.get("port",None)
+    port = int(kwargs.get("port",None))
     action = kwargs.get("action",None)
     value = kwargs.get("value",None)
 
