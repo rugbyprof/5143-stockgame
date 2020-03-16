@@ -1,4 +1,3 @@
-#!/usr/local/Cellar/python@3.8/3.8.1/bin/python3
 """ Client.py
 Look at above shebang and make sure your python is at same location.
 You can test by typing `which python3` at your console.
@@ -15,7 +14,7 @@ import sys
 from ClientClass import Client
 from ClientClass import Request
 from helpers import myArgParse
-import json
+
 
 def Usage():
     print("Usage: <host> <port> <action> <value>")
@@ -34,8 +33,6 @@ if __name__ == "__main__":
     host = kwargs.get("host", None)             # MANDATORY 
     port = int(kwargs.get("port", None))        # MANDATORY Port to connect to (XXXXX, e,g, 6000)
     action = kwargs.get("action", None)         # MANDATORY Tells backend what to do: (search,insert, etc.) 
-
-    # The variables below are optional depending on what you are doing. 
     key = kwargs.get("key", None)               # optional 
     value = kwargs.get("value", None)           # optional
     collection = kwargs.get("collection", None) # optional
@@ -48,7 +45,6 @@ if __name__ == "__main__":
     #     Usage()
 
     request = request.createRequest(action=action, key=key, collection=collection, data=data, value=value)
-
 
     client = Client(host, port)
     client.start_connection(request)

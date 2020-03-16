@@ -1,4 +1,3 @@
-#!/usr/local/Cellar/python@3.8/3.8.1/bin/python3
 import sys
 import selectors
 import json
@@ -17,6 +16,7 @@ class Request:
         self.request['content'] = {}
 
     def searchRequest(self, key):
+        print(key)
         self.request["content"]["action"] = "search"
         self.request["content"]["key"] = key
         return self.request
@@ -47,10 +47,10 @@ class Request:
         if action == "search":
             request = self.searchRequest(key)
         elif action == "insert":
-            request = self.insertRequest(collection, data)
+            request = self.insertRequest(value, data)
         else:
             request = self.catchAllRequest(kwargs)
-            
+
         return request
 
 
