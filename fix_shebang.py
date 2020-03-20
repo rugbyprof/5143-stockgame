@@ -1,4 +1,8 @@
 #!/usr/local/opt/python@3.8/bin/python3
+"""This script looks to see what your python3 path is and attempts to replace
+the shebang at the top of each file with the proper path.  
+USE AT YOUR OWN RISK. Backup folder first!
+"""
 import sys
 import glob, os
 
