@@ -1,0 +1,26 @@
+db.data_3yr.find().count()
+
+// Find googles highest price
+db.data_3yr.find({"Symbol":"GOOG"}).sort( { High: -1 } )
+
+db.data_3yr.distinct("Symbol")
+
+db.info.distinct("Symbol")
+
+// Find all the distinct "sectors" in our stock market
+db.info.distinct("Sector")
+
+// Find all the companies in "Information Technology"
+db.stock_info.find({"sector":"Technology"})
+
+db.stock_info.find({}).count()
+
+db.stock_info.distinct("sector")
+
+db.data_3yr.distinct("Symbol")
+
+
+// Find the latest stock quote for google
+db.data_3yr.find({"Symbol":"GOOG"}).sort({"Date": -1}).limit(1)
+
+db.data_3yr.find({"Date":{$gte:ISODate("2017-01-27T12:00:00"),$lte:ISODate("2018-01-27T12:00:00")}}).count();
