@@ -19,20 +19,22 @@
 ####  Lets say the Stock price is 1000.00
 
 Exchange between client server doing the guessing game:
-- ***C***<sub>***i***</sub> -> ***S***<sub>***j***</sub> 100.00         # client: guesses 100
-- ***S***<sub>***j***</sub> -> ***C***<sub>***i***</sub> -1             # server: higher
-- ***C***<sub>***i***</sub> -> ***S***<sub>***j***</sub> 200.00         # client: doubles guess
-- ***S***<sub>***j***</sub> -> ***C***<sub>***i***</sub> -1             # server: higher
-- ***C***<sub>***i***</sub> -> ***S***<sub>***j***</sub> 400.00         # client: doubles guess
-- ***S***<sub>***j***</sub> -> ***C***<sub>***i***</sub> -1             # server: higher
-- ***C***<sub>***i***</sub> -> ***S***<sub>***j***</sub> 800.00         # client: doubles guess
-- ***S***<sub>***j***</sub> -> ***C***<sub>***i***</sub> -1             # server: higher
-- ***C***<sub>***i***</sub> -> ***S***<sub>***j***</sub> 1600.00        # client: doubles guess
-- ***S***<sub>***j***</sub> -> ***C***<sub>***i***</sub> 1              # server: lower
-- ***C***<sub>***i***</sub> -> ***S***<sub>***j***</sub> 1200.00        # client: reduces guess by splitting last two guesses
-- ***S***<sub>***j***</sub> -> ***C***<sub>***i***</sub> -1             # server: lower
-- ***C***<sub>***i***</sub> -> ***S***<sub>***j***</sub> 1000.00        # client: reduces guess by another 50% of last difference
-- ***S***<sub>***j***</sub> -> ***C***<sub>***i***</sub> 0              # server: go it!
+|                                                        |   Guess | Comment                                                   |
+| :----------------------------------------------------- | ------: | :-------------------------------------------------------- |
+| ***C***<sub>***i***</sub> -> ***S***<sub>***j***</sub> |  100.00 | # client: guesses 100                                     |
+| ***S***<sub>***j***</sub> -> ***C***<sub>***i***</sub> |      -1 | # server: higher                                          |
+| ***C***<sub>***i***</sub> -> ***S***<sub>***j***</sub> |  200.00 | # client: doubles guess                                   |
+| ***S***<sub>***j***</sub> -> ***C***<sub>***i***</sub> |      -1 | # server: higher                                          |
+| ***C***<sub>***i***</sub> -> ***S***<sub>***j***</sub> |  400.00 | # client: doubles guess                                   |
+| ***S***<sub>***j***</sub> -> ***C***<sub>***i***</sub> |      -1 | # server: higher                                          |
+| ***C***<sub>***i***</sub> -> ***S***<sub>***j***</sub> |  800.00 | # client: doubles guess                                   |
+| ***S***<sub>***j***</sub> -> ***C***<sub>***i***</sub> |      -1 | # server: higher                                          |
+| ***C***<sub>***i***</sub> -> ***S***<sub>***j***</sub> | 1600.00 | # client: doubles guess                                   |
+| ***S***<sub>***j***</sub> -> ***C***<sub>***i***</sub> |       1 | # server: lower                                           |
+| ***C***<sub>***i***</sub> -> ***S***<sub>***j***</sub> | 1200.00 | # client: reduces guess by splitting last two guesses     |
+| ***S***<sub>***j***</sub> -> ***C***<sub>***i***</sub> |      -1 | # server: lower                                           |
+| ***C***<sub>***i***</sub> -> ***S***<sub>***j***</sub> | 1000.00 | # client: reduces guess by another 50% of last difference |
+| ***S***<sub>***j***</sub> -> ***C***<sub>***i***</sub> |       0 | # server: go it!                                          |
 
 This is just an example of how to approach a stock price. You could implement different strategies to get faster results.
 
